@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<head>
+	<title>OMDB API</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+	<div id="wrapper">
+
+		<h1>MOVIE DATABASE - SEARCH PAGE</h1>
+		<input id="movie-title"/>
+		<button id="do-search">Search Movie Datbase</button>
+		<button id="do-search-title">Search by title</button>
+		<button id="PageRefresh">new search</button>
+		<div id="result"></div>
+
+
+
+	<div class="table">
+		<table id="container">
+			<thead>
+				<tr>
+					<th>Poster Image</th>
+					<th>Title</th>
+					<th>Type</th>
+					<th>imdbID</th>
+					<th>Year</th>
+				</tr>
+			</thead>
+			<tbody>
+			</tbody>
+		</table>
+	</div>
+	<div class="table">
+		<table id="container_single">
+			<thead>
+				<tr>
+					<th>Poster Image</th>
+					<th>Title</th>
+					<th>Type</th>
+					<th>Plot</th>
+					<th>Year</th>
+
+				</tr>
+			</thead>
+			<tbody>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+
+	<script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>
