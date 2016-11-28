@@ -27,6 +27,7 @@ $(document).ready(function(){
 					'<td>' + movies[i].Type + '</td>' +
 					'<td> '+ movies[i].imdbID +'</td>' +
 					'<td>' + movies[i].Year + '</td></tr>');
+			
 			}
 
 			$('#do-search').hide(); // on success response, hide search button
@@ -34,7 +35,7 @@ $(document).ready(function(){
 			$('#movie-title').hide(); // on success response, hide search button
 			$('#PageRefresh').show(); // on success response, display new search button
 			$('#container').show(); // on success response, display results in table
-			
+
 		},
 
 		error: function(error){
