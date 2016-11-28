@@ -91,6 +91,7 @@ $("#do-search-title").on('click',function(){
 });
 
 //refresh the page
+//this is linked to the new search button
 $('#PageRefresh').click(function() {
 	location.reload();
 });
