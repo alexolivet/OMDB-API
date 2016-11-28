@@ -23,11 +23,11 @@ $(document).ready(function(){
 			var movies = results.Search;
 			for(var i = 0; i <= movies.length-1; i++){
 				container.append('<tr><td> <img src=' + movies[i].Poster + '/> </td>' +
-					'<td>' + movies[i].title + '</td>' +
+					'<td>' + movies[i].Title + '</td>' +
 					'<td>' + movies[i].Type + '</td>' +
 					'<td> '+ movies[i].imdbID +'</td>' +
 					'<td>' + movies[i].Year + '</td></tr>');
-			
+
 			}
 
 			$('#do-search').hide(); // on success response, hide search button
