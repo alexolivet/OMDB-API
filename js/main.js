@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-	$("#do-search").on('click',function(){
+	$("#movie-title").on('keyup',function(){
 	//Get data from input box
 	var movieTitle = $('#movie-title').val();
 	if (movieTitle.length === 1) {
@@ -8,12 +8,14 @@ $(document).ready(function(){
 	} 
 	else{
 
-
+		$("#result").html("");
 	//Build our URI with the movie title
 	var sURL = "http://www.omdbapi.com/?s=" + movieTitle + "&plot=full&r=json";
 
 	//Grab our container and assign it to variable for later use
 	var container = $('#container');
+
+	//if
 
 	$.ajax({
 		method: 'GET',
@@ -36,50 +38,6 @@ $(document).ready(function(){
 			$('#PageRefresh').show(); // on success response, display new search button
 			$('#container').show(); // on success response, display results in table
 
-		},
-
-		error: function(error){
-			console.error('@ERROR', error);
-		}
-	});
-};
-
-});
-
-$("#do-search-title").on('click',function(){
-	//Get data from input box
-	var movieTitleSearch = $('#movie-title').val();
-	if (movieTitleSearch.length === 1) {
-		$("#result").html("Please enter at least 2 characters");
-	} 
-	else{
-
-
-	//Build our URI with the movie title
-	var sURL = "http://www.omdbapi.com/?t=" + movieTitleSearch + "&plot=full&r=json";
-
-	//Grab our container and assign it to variable for later use
-	var container = $('#container_single');
-
-	$.ajax({
-		method: 'GET',
-		url: sURL,
-		success: function(results){
-			//console.log("Done: ", results); // leave this for test purpose
-			var movies = results.Search;
-			 if (results.Response === "True") { 
-				container.append('<tr><td> <img src=' + results.Poster + '/> </td>' +
-					'<td>' + results.Title + '</td>' +
-					'<td>' + results.Type + '</td>' +
-					'<td>' + results.Plot + '</td>' +
-					'<td>' + results.Year + '</td></tr>');
-			}
-
-			$('#do-search').hide(); // on success response, hide search button
-			$('#do-search-title').hide(); // on success response, hide search button
-			$('#movie-title').hide(); // on success response, hide search button
-			$('#PageRefresh').show(); // on success response, display new search button
-			$('#container_single').show(); // on success response, display results in table
 		},
 
 		error: function(error){
