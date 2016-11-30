@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <head>
 	<title>OMDB API</title>
-	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="../search/css/style.css">
 </head>
 <body>
 	<div id="wrapper">
 		<h1>MOVIE DATABASE - SEARCH PAGE</h1>
-		<p>This page searches with onkeyup functionalities</p>
-		<p>This <a href="search/index.html"> page</a> uses a different approach on search in the OMDB API</p>
+		<p>This page searches with ON CLICK functionality</p>
+		<p>Go <a href="../index.html"> back </a> to onkeyup search page</p>
 		<input id="movie-title"/>
+		<button id="do-search">Search Movie Datbase</button>
+		<button id="do-search-title">Search by title</button>
 		<button id="PageRefresh">new search</button>
 		<div id="result"></div>
 		<div class="table">
@@ -43,6 +45,6 @@
 		</div>
 	</div>
 	<script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
-	<script type="text/javascript" src="js/main.js"></script>
+	<script type="text/javascript" src="../search/js/main.js"></script>
 </body>
 </html>
