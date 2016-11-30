@@ -17,15 +17,20 @@ $(document).ready(function() {
             $.ajax({
                 method: 'GET',
                 url: sURL,
+
                 success: function(results) {
                     //console.log("Done: ", results); // leave this for test purpose
                     var movies = results.Search;
-                    for (var i = 0; i <= movies.length - 1; i++) {
-                        container.append('<tr><td> <img src=' + movies[i].Poster + '/> </td>' +
-                            '<td>' + movies[i].Title + '</td>' +
-                            '<td>' + movies[i].Type + '</td>' +
-                            '<td> ' + movies[i].imdbID + '</td>' +
-                            '<td>' + movies[i].Year + '</td></tr>');
+                    if (results.Search === undefined) {
+                        $("#result").html("no Movies found under this title");
+                    } else {
+                        for (var i = 0; i <= movies.length - 1; i++) {
+                            container.append('<tr><td> <img src=' + movies[i].Poster + '/> </td>' +
+                                '<td>' + movies[i].Title + '</td>' +
+                                '<td>' + movies[i].Type + '</td>' +
+                                '<td> ' + movies[i].imdbID + '</td>' +
+                                '<td>' + movies[i].Year + '</td></tr>');
+                        }
                     }
 
                     $('#do-search').hide(); // on success response, hide search button
@@ -35,10 +40,12 @@ $(document).ready(function() {
                     $('#container').show(); // on success response, display results in table
 
                 },
-
+                false: function(error) {
+                    alert("No Movies found with this tilte")
+                },
                 error: function(error) {
                     console.error('@ERROR', error);
-                }
+                },
             });
         };
 
@@ -71,6 +78,9 @@ $(document).ready(function() {
                             '<td>' + results.Plot + '</td>' +
                             '<td>' + results.Year + '</td></tr>');
                     }
+                    if (results.Response === "False") {
+                        $("#result").html("no Movies found under this title");
+                    }
 
                     $('#do-search').hide(); // on success response, hide search button
                     $('#do-search-title').hide(); // on success response, hide search button
@@ -81,7 +91,7 @@ $(document).ready(function() {
 
                 error: function(error) {
                     console.error('@ERROR', error);
-                }
+                },
             });
         };
 

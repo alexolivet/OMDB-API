@@ -47,7 +47,7 @@ $(document).ready(function() {
 
                       error: function(error) {
                       	console.error('@ERROR', error);
-                      }
+                      },
                     });
                 //timeout stops here
                 //this is the place the change the timeout value
