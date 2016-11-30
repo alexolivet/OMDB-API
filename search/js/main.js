@@ -3,6 +3,7 @@ $(document).ready(function() {
     $("#do-search").on('click', function() {
         //Get data from input box
         var movieTitle = $('#movie-title').val();
+        movieTitle = jQuery.trim(movieTitle); //trim is used to remove white space in front and end of words
         if (movieTitle.length === 1) {
             $("#result").html("Please enter at least 2 characters");
         } else {
@@ -21,9 +22,9 @@ $(document).ready(function() {
                 success: function(results) {
                     //console.log("Done: ", results); // leave this for test purpose
                     var movies = results.Search;
-                    if (results.Search === undefined) {
+                    if (results.Search === undefined) { // so if title does not exist or cannot be found
                         $("#result").html("no Movies found under this title");
-                         $(".table").hide();//so when no result no need to display table at all
+                         $(".table").hide();//on no result no need to display table at all
                      } else {
                         for (var i = 0; i <= movies.length - 1; i++) {
                             container.append('<tr><td> <img src=' + movies[i].Poster + '/> </td>' +
@@ -40,9 +41,6 @@ $(document).ready(function() {
                     $('#PageRefresh').show(); // on success response, display new search button
                     $('#container').show(); // on success response, display results in table
 
-                },
-                false: function(error) {
-                    alert("No Movies found with this tilte")
                 },
                 error: function(error) {
                     console.error('@ERROR', error);
@@ -79,9 +77,9 @@ $("#do-search-title").on('click', function() {
                             '<td>' + results.Plot + '</td>' +
                             '<td>' + results.Year + '</td></tr>');
                     }
-                    if (results.Response === "False") {
+                    if (results.Response === "False") { // so if title does not exist or cannot be found
                         $("#result").html("no Movies found under this title");
-                        $(".table").hide();//so when no result no need to display table at all
+                        $(".table").hide();//on no result no need to display table at all
                     }
 
                     $('#do-search').hide(); // on success response, hide search button

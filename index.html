@@ -2,12 +2,14 @@
 <head>
 	<title>OMDB API</title>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
+		<script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+		<script type="text/javascript" src="js/main.js"></script>
 </head>
 <body>
 	<div id="wrapper">
 		<h1>MOVIE DATABASE - SEARCH PAGE</h1>
-		<p>This page searches with onkeyup functionalities</p>
-		<p>This <a href="search/index.html"> page</a> uses a different approach on search in the OMDB API</p>
+		<p>This page searches with onkeyup functionality</p>
+		<p>This <a href="search/index.html"> page </a> however uses a different approach on search in the OMDB API</p>
 		<input id="movie-title"/>
 		<button id="PageRefresh">new search</button>
 		<div id="result"></div>
@@ -26,23 +28,6 @@
 				</tbody>
 			</table>
 		</div>
-		<div class="table">
-			<table id="container_single">
-				<thead>
-					<tr>
-						<th>Poster Image</th>
-						<th>Title</th>
-						<th>Type</th>
-						<th>Plot</th>
-						<th>Year</th>
-					</tr>
-				</thead>
-				<tbody>
-				</tbody>
-			</table>
-		</div>
 	</div>
-	<script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
-	<script type="text/javascript" src="js/main.js"></script>
 </body>
 </html>
