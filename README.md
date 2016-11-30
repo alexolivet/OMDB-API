@@ -13,5 +13,5 @@ I have also a onkey up search functionality to further enhance the ajax call cap
 API Reference
 
 This roject uses the OMDB API. The full API and examples can be found here: http://omdbapi.com.
-Tests
+
 
