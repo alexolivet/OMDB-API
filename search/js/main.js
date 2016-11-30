@@ -23,7 +23,8 @@ $(document).ready(function() {
                     var movies = results.Search;
                     if (results.Search === undefined) {
                         $("#result").html("no Movies found under this title");
-                    } else {
+                         $(".table").hide();//so when no result no need to display table at all
+                     } else {
                         for (var i = 0; i <= movies.length - 1; i++) {
                             container.append('<tr><td> <img src=' + movies[i].Poster + '/> </td>' +
                                 '<td>' + movies[i].Title + '</td>' +
@@ -47,11 +48,11 @@ $(document).ready(function() {
                     console.error('@ERROR', error);
                 },
             });
-        };
+};
 
-    });
+});
 
-    $("#do-search-title").on('click', function() {
+$("#do-search-title").on('click', function() {
         //Get data from input box
         var movieTitleSearch = $('#movie-title').val();
         if (movieTitleSearch.length === 1) {
@@ -80,6 +81,7 @@ $(document).ready(function() {
                     }
                     if (results.Response === "False") {
                         $("#result").html("no Movies found under this title");
+                        $(".table").hide();//so when no result no need to display table at all
                     }
 
                     $('#do-search').hide(); // on success response, hide search button
@@ -93,9 +95,9 @@ $(document).ready(function() {
                     console.error('@ERROR', error);
                 },
             });
-        };
+};
 
-    });
+});
 
     //refresh the page
     $('#PageRefresh').click(function() {
